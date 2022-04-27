@@ -18,20 +18,20 @@ public class PersonController {
     private PersonService service;
 
     @ApiOperation(value = "Get all registered people.")
-    @GetMapping(produces = {"application/json", "application/xml"})
+    @GetMapping(produces = {"application/json", "application/xml", "application/x-yaml"})
     public List<Person> findAll(){
        return service.findAll();
     }
 
     @ApiOperation(value = "Find a person by id.", response = Person.class)
-    @GetMapping(value = "/{id}", produces = {"application/json", "application/xml"})
+    @GetMapping(value = "/{id}", produces = {"application/json", "application/xml", "application/x-yaml"})
     public Person findById(@ApiParam(name = "id", value = "An integer value", required = true)
                                @PathVariable("id") long id) throws Exception{
         return service.findById(id);
     }
 
     @ApiOperation(value = "Store a newly Person", consumes = "application/json, application/xml", produces = "application/json, application/xml")
-    @PostMapping(consumes = {"application/json", "application/xml"}, produces = {"application/json", "application/xml"})
+    @PostMapping(consumes = {"application/json", "application/xml", "application/x-yaml"}, produces = {"application/json", "application/xml", "application/x-yaml"})
     public Person save(@ApiParam(name = "person", value = "A person model", type = "Person") @RequestBody Person person ){
         return service.save(person);
     }
