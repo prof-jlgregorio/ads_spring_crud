@@ -15,6 +15,14 @@
 	<description>A simple CRUD with database using REST concepts. </description>
 	<properties>
 		<java.version>11</java.version>
+
+		<!--flyway -->
+		<flyway.url>jdbc:mysql://localhost:3306/ads_spring_crud</flyway.url>
+		<flyway.user>root</flyway.user>
+		<flyway.password>mysqldba</flyway.password>
+		<flyway.schemas>ads_spring_crud</flyway.schemas>
+
+
 	</properties>
 	<dependencies>
 		<dependency>
@@ -73,6 +81,13 @@
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-yaml</artifactId>
+		</dependency>
+
+        <!--	flyway to migrations control	-->
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-maven-plugin</artifactId>
+			<version>8.4.3</version>
 		</dependency>
 
 
